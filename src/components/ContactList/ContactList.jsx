@@ -3,7 +3,7 @@ import styles from './ContactList.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/slice';
 import { useSelector } from 'react-redux';
-import { getFilter, getItems } from 'redux/Selectors';
+import { getFilter, getItems } from 'redux/selectors';
 
 const ContactList = () => {
   const items = useSelector(getItems);
