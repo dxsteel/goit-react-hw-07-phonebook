@@ -1,0 +1,17 @@
+.filter {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.names {
+  color: coral;
+}
+
+.input {
+  background: inherit;
+  border: 1px solid tomato;
+  min-height: 25px;
+  color: beige;
+}
