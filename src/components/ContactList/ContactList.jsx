@@ -6,8 +6,9 @@ import { useDeleteContactMutation, useFetchContactsQuery } from 'redux/apiSlice'
 
 const ContactList = () => {
   const { data = [] } = useFetchContactsQuery();
-  const [deleteContact] = useDeleteContactMutation();
+  const [deleteContact] = useDeleteContactMutation()
   const { filter } = useSelector(state => getFilter(state));
+  
 
   const getFilterContacts = () => {
     const normalizedFilter = filter.toLowerCase();
@@ -15,7 +16,7 @@ const ContactList = () => {
       contacts.name.toLowerCase().includes(normalizedFilter)
     );
   };
-
+  
   const filterContacts = getFilterContacts();
 
   return (
@@ -38,7 +39,7 @@ const ContactList = () => {
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
+  filterContacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
