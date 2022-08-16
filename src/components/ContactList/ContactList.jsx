@@ -8,20 +8,20 @@ const ContactList = () => {
   const { data = [] } = useFetchContactsQuery();
   const [deleteContact] = useDeleteContactMutation()
   const { filter } = useSelector(state => getFilter(state));
-  
+  console.log(data);
 
   const getFilterContacts = () => {
     const normalizedFilter = filter.toLowerCase();
-    return data.filter(contacts =>
-      contacts.name.toLowerCase().includes(normalizedFilter)
-    );
+    return data.filter(contacts => {
+      console.log(contacts);
+     return contacts.name.toLowerCase().includes(normalizedFilter)
+   } );
   };
   
-  const filterContacts = getFilterContacts();
 
   return (
     <div className={styles.contactItem}>
-      {filterContacts.map(({ id, number, name }) => {
+      {getFilterContacts().map(({ id, number, name }) => {
         return (
           <li key={id}>
             {name}: {number}
