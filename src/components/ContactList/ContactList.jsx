@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import styles from './ContactList.module.css';
 import { useSelector } from 'react-redux';
-// import { getFilter } from 'redux/selectors';
 import { useDeleteContactMutation, useFetchContactsQuery } from 'redux/apiSlice';
 
 const ContactList = () => {
   const { data = [] } = useFetchContactsQuery();
   const [deleteContact] = useDeleteContactMutation()
-  const { filter } = useSelector(state =>state.filter);
+  const { filter } = useSelector(state => state.filter);
   console.log(data);
 
   const getFilterContacts = () => {
@@ -21,10 +20,10 @@ const ContactList = () => {
 
   return (
     <div className={styles.contactItem}>
-      {getFilterContacts().map(({ id, number, name }) => {
+      {getFilterContacts().map(({ id, phone, name }) => {
         return (
           <li key={id}>
-            {name}: {number}
+            {name}: {phone}
             <button
               className={styles.button}
               onClick={() => (deleteContact(id))}
