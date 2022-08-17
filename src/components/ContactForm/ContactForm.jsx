@@ -4,7 +4,6 @@ import styles from './ContactForm.module.css';
 import { nanoid } from 'nanoid';
 import { useAddContactMutation, useFetchContactsQuery } from 'redux/apiSlice';
 
-
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
